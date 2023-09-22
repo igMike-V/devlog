@@ -1,4 +1,4 @@
-import type { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from 'payload/types';
 
 const Users: CollectionConfig = {
   slug: 'users',
@@ -6,12 +6,13 @@ const Users: CollectionConfig = {
   admin: {
     useAsTitle: 'email',
   },
-  access: {
-    read: () => true,
-  },
   fields: [
-    // Email added by default
-    // Add more fields as needed
+    {
+      name: 'avatar',
+      label: 'Avatar',
+      type: 'upload',
+      relationTo: 'media',
+    }
   ],
 };
 

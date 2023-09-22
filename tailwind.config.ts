@@ -3,7 +3,19 @@ import type { Config } from 'tailwindcss'
 module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    colors: {
+      'aqua': '0EB6BF',
+      'dark': '2D2E2D',
+      'light': 'E6E6E6',
+      'translight': 'FFFFFF70',
+      'transdark': '00000070',
+    },
+    fontFamily: {
+      'heading': ['cheddar-gothic-serif', 'sans-serif'],
+      'text': ['Inconsolata', 'monospace'],
+    },
+    extend: {
+    },
   },
   plugins: [],
   corePlugins: {

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;500&display=swap');
+@import url("https://use.typekit.net/igz2evd.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
