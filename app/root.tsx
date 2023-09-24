@@ -14,7 +14,7 @@ import Header from "./components/Header";
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
 export const meta: MetaFunction = () => [
-  { title: "Welcome to RePay!" },
+  { title: "Welcome to the Lab - Mike Vautour" },
   { charSet: "utf-8" },
   { name: "viewport", content: "width=device-width, initial-scale=1" },
 ];
@@ -26,9 +26,11 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="p-0 m-0 min-h-screen flex flex-col">
         <Header />
-        <Outlet />
+        <main className="flex justify-center mx-auto px-3 py-3 flex-grow">
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

@@ -44,7 +44,6 @@ async function start() {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
     },
   });
-
   app.use(payload.authenticate);
 
   app.use(compression());

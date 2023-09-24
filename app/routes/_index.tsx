@@ -6,10 +6,6 @@ import DevLogBlock from "~/components/DevLogBlock";
 import ProjectBlock from "~/components/ProjectBlock";
 
 export const loader = async ({ context: { payload } }: LoaderFunctionArgs) => {
-  const users = await payload.find({
-    collection: "users",
-  });
-
   const projects = await payload.find({
     collection: "projects",
   })
@@ -18,20 +14,19 @@ export const loader = async ({ context: { payload } }: LoaderFunctionArgs) => {
     collection: "posts"
   })
 
-  return json({ users: users.docs, posts: posts.docs, projects: projects.docs }, { status: 200 });
+  return json({ posts: posts.docs, projects: projects.docs }, { status: 200 });
 };
 
 export default function Index() {
-  const { users, posts, projects } = useLoaderData<typeof loader>();
+  const { posts, projects } = useLoaderData<typeof loader>();
   return (
-    <main className="flex flex-col sm:flex-row">
-      <section>
-        <h2 className="font-heading text-5xl text-aqua">Featured Projects</h2>
-        projects load here
+    <main className="flex flex-col sm:gap-20 md:flex-row">
+      <section className="basis-7/12">
+        <h2 className="font-heading font-normal text-3xl sm:text-[2.5em] text-aqua mt-0 p-0">Featured Projects</h2>
         { projects.length > 0 && projects.map(project => <ProjectBlock project={project} key={project.id}  />)}
       </section>
-      <section>
-        <h2>DevLog Updates</h2>
+      <section className="basis-5/12">
+        <h2 className="font-heading font-normal text-3xl sm:text-[2.5em] md:pl-[.78em] text-aqua mt-0 p-0">DevLog Updates</h2>
         { posts.length > 0 && posts.map((post) => <DevLogBlock post={post} key={post.id} />) }
       </section>
     </main>
